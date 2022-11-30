@@ -1,21 +1,19 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
-
 ESX = exports["es_extended"]:getSharedObject()
 
 MySQL.ready(function()
 	MySQL.Sync.execute(
-		"CREATE TABLE IF NOT EXISTS `outfits` (" ..
-			"`id` int NOT NULL AUTO_INCREMENT, " ..
-			"`identifier` varchar(60) NOT NULL, " ..
-			"`name` longtext, " ..
-			"`ped` longtext, " ..
-			"`components` longtext, " ..
-			"`props` longtext, " ..
-			"PRIMARY KEY (`id`), " ..
-			"UNIQUE KEY `id_UNIQUE` (`id`) " ..
-		") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8; "
+		[[
+			CREATE TABLE IF NOT EXISTS `outfits` (
+				`id` int NOT NULL AUTO_INCREMENT,
+				`identifier` varchar(60) NOT NULL,
+				`name` longtext,
+				`ped` longtext,
+				`components` longtext,
+				`props` longtext,
+				PRIMARY KEY (`id`),
+				UNIQUE KEY `id_UNIQUE` (`id`)
+			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+		]]
 	)
 end)
 
@@ -29,15 +27,12 @@ end)
 
 RegisterServerEvent("fivem-appearance:saveOutfit")
 AddEventHandler("fivem-appearance:saveOutfit", function(name, pedModel, pedComponents, pedProps)
-	local source = source
 	local xPlayer = ESX.GetPlayerFromId(source)
 	MySQL.insert.await('INSERT INTO outfits (identifier, name, ped, components, props) VALUES (?, ?, ?, ?, ?)', {xPlayer.identifier, name, json.encode(pedModel), json.encode(pedComponents), json.encode(pedProps)})
 end)
 
 RegisterServerEvent("fivem-appearance:deleteOutfit")
 AddEventHandler("fivem-appearance:deleteOutfit", function(id)
-	local source = source
-	local xPlayer = ESX.GetPlayerFromId(source)
 	MySQL.Async.execute('DELETE FROM `outfits` WHERE `id` = @id', {
 		['@id'] = id
 	})
@@ -58,34 +53,35 @@ lib.callback.register('fivem-appearance:getPlayerSkin', function(source)
 end)
 
 lib.callback.register('fivem-appearance:payFunds', function(source, price)
-    local xPlayer = ESX.GetPlayerFromId(source)
+  local xPlayer = ESX.GetPlayerFromId(source)
 	local xAccountMoney = xPlayer.getAccount(Config.PaymentAccount).money 
 	if xAccountMoney < price then 
 		return false 
-	else
-		xPlayer.removeAccountMoney(Config.PaymentAccount, price)
-		return true
 	end
+
+	xPlayer.removeAccountMoney(Config.PaymentAccount, price)
+	return true
 end)
 
 lib.callback.register('fivem-appearance:getOutfits', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
-    local outfits = {}
-    local result = MySQL.query.await('SELECT * FROM outfits WHERE identifier = ?', {xPlayer.identifier})
-	if result then
-		for i=1, #result, 1 do
-			outfits[#outfits + 1] = {
-				id = result[i].id,
-				name = result[i].name,
-				ped = json.decode(result[i].ped),
-				components = json.decode(result[i].components),
-				props = json.decode(result[i].props)
-			}
-		end
-		return outfits
-	else
+	local result = MySQL.query.await('SELECT * FROM outfits WHERE identifier = ?', {xPlayer.identifier})
+	local outfits = {}
+	if not result then
 		return false
 	end
+
+	for i=1, #result, 1 do
+		outfits[#outfits + 1] = {
+			id = result[i].id,
+			name = result[i].name,
+			ped = json.decode(result[i].ped),
+			components = json.decode(result[i].components),
+			props = json.decode(result[i].props)
+		}
+	end
+
+	return outfits
 end)
 
 -- Commands
@@ -97,11 +93,7 @@ end, false, {help = Strings.skin_command_help, validate = true, arguments = {
 
 -- esx_skin/skinchanger compatibility
 getGender = function(model)
-    if model == 'mp_f_freemode_01' then
-        return 1
-    else
-        return 0
-    end
+  return model == 'mp_f_freemode_01' and 1 or 0
 end
 
 ESX.RegisterServerCallback('esx_skin:getPlayerSkin', function(source, cb)
