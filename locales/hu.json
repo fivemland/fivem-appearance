@@ -1,0 +1,141 @@
+{
+  "modal": {
+    "save": {
+      "title": "Testreszabás mentése",
+      "description": "Csúnya maradsz"
+    },
+    "exit": {
+      "title": "Kilépés a testreszabásból",
+      "description": "A rendszer nem menti a változásokat"
+    },
+    "accept": "Igen",
+    "decline": "Nem"
+  },
+  "ped": {
+    "title": "Ped",
+    "model": "Model"
+  },
+  "headBlend": {
+    "title": "Öröklés",
+    "shape": {
+      "title": "Arc",
+      "firstOption": "Apa",
+      "secondOption": "Anya",
+      "mix": "Mix"
+    },
+    "skin": {
+      "title": "Bőr",
+      "firstOption": "Apa",
+      "secondOption": "Anya",
+      "mix": "Mix"
+    }
+  },
+  "faceFeatures": {
+    "title": "Arcvonások",
+    "nose": {
+      "title": "Orr",
+      "width": "Szélesség",
+      "height": "Magasság",
+      "size": "Size",
+      "boneHeight": "Csont magasság",
+      "boneTwist": "Csontcsavarás",
+      "peakHeight": "Csúcsmagasság"
+    },
+    "eyebrows": {
+      "title": "Szemöldök",
+      "height": "Magasság",
+      "depth": "Mélység"
+    },
+    "cheeks": {
+      "title": "Arcok",
+      "boneHeight": "Csont magasság",
+      "boneWidth": "Csont szélesség",
+      "width": "Szélesség"
+    },
+    "eyesAndMouth": {
+      "title": "Szem és száj",
+      "eyesOpening": "Nyitott szemek",
+      "lipsThickness": "Ajkak vastagsága"
+    },
+    "jaw": {
+      "title": "Állkapocs",
+      "width": "Szélesség",
+      "size": "Méret"
+    },
+    "chin": {
+      "title": "Áll",
+      "lowering": "Süllyesztés",
+      "length": "Hossz",
+      "size": "Méret",
+      "hole": "Lyuk méret"
+    },
+    "neck": {
+      "title": "Nyak",
+      "thickness": "Vastagság"
+    }
+  },
+  "headOverlays": {
+    "title": "Megjelenés",
+    "hair": {
+      "title": "Haj",
+      "style": "Stílus",
+      "color": "Szín",
+      "highlight": "Kiemelés",
+      "fade": "Áttűnés"
+    },
+    "opacity": "Homályosság",
+    "style": "Stílus",
+    "color": "Szín",
+    "blemishes": "Foltok",
+    "beard": "Szakáll",
+    "eyebrows": "Szemöldök",
+    "ageing": "Öregedés",
+    "makeUp": "Smink",
+    "blush": "Pír",
+    "complexion": "Arcszín",
+    "sunDamage": "Nap okozta károk",
+    "lipstick": "Ajakrúzs",
+    "moleAndFreckles": "Vakond és szeplők",
+    "chestHair": "Mellszőr",
+    "bodyBlemishes": "Testi foltok",
+    "eyeColor": "Szem szín"
+  },
+  "components": {
+    "title": "Ruhák",
+    "drawable": "Drawable",
+    "texture": "Textúra",
+    "mask": "Maszk",
+    "upperBody": "Kezek",
+    "lowerBody": "Lábak",
+    "bags": "Táskák és ejtőernyő",
+    "shoes": "Cipők",
+    "scarfAndChains": "Sál és láncok",
+    "shirt": "Póló",
+    "bodyArmor": "Test páncél",
+    "decals": "Matricák",
+    "jackets": "Dzsekik"
+  },
+  "props": {
+    "title": "Kellékek",
+    "drawable": "Drawable",
+    "texture": "Textúra",
+    "hats": "Kalapok és sisakok",
+    "glasses": "Szemüvegek",
+    "ear": "Fül",
+    "watches": "Órák",
+    "bracelets": "Karkötők"
+  },
+  "tattoos": {
+    "title": "Tetoválások",
+    "items": {
+      "ZONE_TORSO": "Torzó",
+      "ZONE_HEAD": "Fej",
+      "ZONE_LEFT_ARM": "Bal kéz",
+      "ZONE_RIGHT_ARM": "Jobb kéz",
+      "ZONE_LEFT_LEG": "Bal láb",
+      "ZONE_RIGHT_LEG": "Jobb láb"
+    },
+    "apply": "Alkalmaz",
+    "delete": "Törlés"
+  }
+}

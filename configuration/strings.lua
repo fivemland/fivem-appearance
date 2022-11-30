@@ -1,36 +1,36 @@
 Strings = {
     -- Text UI strings --
-    clothing_menu = '[E] - Change Clothing',
-    barber_menu = '[E] - Change Hair/Face',
-    tattoo_menu = '[E] - Change Tattoos',
+    clothing_menu = '[E] - Ruha csere',
+    barber_menu = '[E] - Haj/Arc csere',
+    tattoo_menu = '[E] - Tetoválás csere',
 
     -- Notifications --
-    success = 'Success',
-    success_desc = 'You have successfully paid $%s for a new look!',
+    success = 'Sikeres',
+    success_desc = 'Sikeresen fizettél %s$-t az új kinézetedért.',
 
-    no_funds = 'Lacking funds',
-    no_funds_desc = 'You do not have enough funds in the bank for this',
+    no_funds = 'Pénz hiány',
+    no_funds_desc = 'Nincs elég pénzed a bankban ehhez',
 
     -- Menus --
 
     -- Main clothing shop menu
-    clothing_shop_title = 'Shop Menu',
-    change_clothing_title = 'Change Clothing',
-    change_clothing_desc = 'Browse available clothing',
-    browse_outfits_title = 'Browse Outfits',
-    browse_outfits_desc = 'Browse saved outfits',
-    save_outfit_title = 'Save Outfit',
-    save_outfit_desc = 'Save current outfit',
-    delete_outfit_title = 'Delete Outfits',
-    delete_outfit_desc = 'Delete a saved outfit',
+    clothing_shop_title = 'Bolt menü',
+    change_clothing_title = 'Ruha csere',
+    change_clothing_desc = 'Elérhető ruházatok megtekintése',
+    browse_outfits_title = 'Öltözékek megtekintése',
+    browse_outfits_desc = 'Mentett öltözékek megtekintése',
+    save_outfit_title = 'Öltözék mentése',
+    save_outfit_desc = 'Jelenlegi öltözék mentése',
+    delete_outfit_title = 'Öldözékek törlése',
+    delete_outfit_desc = 'Mentett öltözék törlése',
 
     -- Browse/Delete outfits & Wardrobe
-    wardrobe_title = 'Wardrobe',
-    delete_outfits_title = 'Delete Outfits',
-    go_back_title = '< Go Back',
-    go_back_desc = 'No Saved Outfits!',
+    wardrobe_title = 'Ruhásszekrény',
+    delete_outfits_title = 'Öldözékek törlése',
+    go_back_title = '< Vissza',
+    go_back_desc = 'Nincs mentett öltözék!',
 
     -- Other
-    skin_command_help = 'Change Skin',
-    skin_command_arg_help = 'Player ID'
+    skin_command_help = 'Skin csere',
+    skin_command_arg_help = 'Jétékos ID'
 }
