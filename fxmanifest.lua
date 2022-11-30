@@ -1,14 +1,10 @@
------------------For support, scripts, and more----------------
---------------- https://discord.gg/wasabiscripts  -------------
----------------------------------------------------------------
-
 fx_version "cerulean"
 game "gta5"
 lua54 'yes'
 
-author 'wasabirobby'
-description 'Wasabi fork of fivem-appearance'
-version '1.2.3'
+author 'FiveM Land'
+description 'FiveM Land fork of fivem-appearance'
+version '1.2.4'
 
 files {
   'web/dist/index.html',
