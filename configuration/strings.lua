@@ -20,6 +20,7 @@ Strings = {
     browse_outfits_title = 'Öltözékek megtekintése',
     browse_outfits_desc = 'Mentett öltözékek megtekintése',
     save_outfit_title = 'Öltözék mentése',
+    save_outfit_info = 'Öltözék neve',
     save_outfit_desc = 'Jelenlegi öltözék mentése',
     delete_outfit_title = 'Öldözékek törlése',
     delete_outfit_desc = 'Mentett öltözék törlése',

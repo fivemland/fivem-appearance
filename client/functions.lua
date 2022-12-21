@@ -21,16 +21,15 @@ addCommas = function(n)
 								  :gsub(",(%-?)$","%1"):reverse()
 end
 
-createBlip = function(coords, sprite, colour, text, scale)
-    local blip = AddBlipForCoord(coords)
-    SetBlipSprite(blip, sprite)
-    SetBlipColour(blip, colour)
-    SetBlipAsShortRange(blip, true)
-    SetBlipScale(blip, scale)
-	AddTextEntry(text, text)
-	BeginTextCommandSetBlipName(text)
-	EndTextCommandSetBlipName(blip)
-    return blip
+createBlip = function(coords, sprite, color, text, scale)
+	local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
+	SetBlipSprite(blip, sprite)
+	SetBlipDisplay(blip, 4)
+	SetBlipScale(blip, scale)
+	SetBlipColour(blip, color)
+	SetBlipAsShortRange(blip, true)
+	BeginTextCommandSetBlipName(text.blip)
+	EndTextCommandSetBlipName(text.blip)
 end
 
 consolidateShops = function()
@@ -61,6 +60,8 @@ end
 openShop = function(store, price)
     local ped = cache.ped
     local currentAppearance = exports['fivem-appearance']:getPedAppearance(ped)
+    local tetovaze = exports['fivem-appearance']:getPedTattoos(ped)
+    currentAppearance.tattoos = tetovaze
     local config = {}
     InMenu = true
     if store == 'clothing' then
@@ -73,7 +74,8 @@ openShop = function(store, price)
                 faceFeatures = false,
                 headOverlays = false,
                 components = true,
-                props = true
+                props = true,
+                tattoos = false
             }
         elseif store == 'barber' then
             config = {
@@ -98,6 +100,9 @@ openShop = function(store, price)
         end
         exports['fivem-appearance']:startPlayerCustomization(function (appearance)
             if (appearance) then
+		if json.encode(appearance.tattoos) == '[]' then
+                    appearance.tattoos = tetovaze
+                end
                 if price then
                     local paid = lib.callback.await('fivem-appearance:payFunds', 100, price)                    
                     if paid then

@@ -74,7 +74,7 @@ AddEventHandler('fivem-appearance:setOutfit', function(data)
 end)
 
 RegisterNetEvent('fivem-appearance:saveOutfit', function()
-    local input = lib.inputDialog('Save Outfit', {'Outfit Name'})
+    local input = lib.inputDialog(Strings.save_outfit_title, {Strings.save_outfit_info})
     if input then
         local name = input[1]
         local playerPed = PlayerPedId()
@@ -288,6 +288,15 @@ AddEventHandler('skinchanger:loadSkin', function(skin, cb)
 	end
 end)
 
+AddEventHandler('skinchanger:loadDefaultModel', function(loadMale, cb)
+    if loadMale then
+        TriggerEvent('skinchanger:loadSkin',Config.DefaultSkin)
+    else
+        local skin = Config.DefaultSkin
+        skin.model = 'mp_f_freemode_01'
+        TriggerEvent('skinchanger:loadSkin',skin)
+    end
+end)
 
 RegisterNetEvent('skinchanger:loadClothes')
 AddEventHandler('skinchanger:loadClothes', function(skin, clothes)
